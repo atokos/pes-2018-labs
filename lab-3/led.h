@@ -3,17 +3,7 @@
 
 #include "project.h"
 
-void Led_Init(tWord DELAY);
-
-void Led_Update();
-
-void Led_OFF();
-
-void Led_Reset();
-
-void Led_Enable(tByte state);
-
-void Led_Blink();
+void Led_Init();
 
 void Led_Set(tByte LED, tByte STATE);
 
