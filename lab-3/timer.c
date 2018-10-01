@@ -1,5 +1,5 @@
 #include "project.h"
-#include "led.h"
+#include "traffic.h"
 
 #include "timer.h"
 
@@ -24,8 +24,6 @@ void Timer_Init() {
 
         // Set compare value
         CCR0 = TMRC;
-
-        __enable_interrupt();
 }
 
 __attribute__((interrupt(TIMER0_A0_VECTOR))) void Timer_A(void) {
@@ -37,5 +35,5 @@ tWord getTick() {return tickCount;}
 /* Runs approx. every 1 ms */
 void timer_run() {
 	tickCount++;
-	Led_Update();
+	Traffic_Update();
 }
