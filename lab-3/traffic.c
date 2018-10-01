@@ -1,4 +1,5 @@
 #include "project.h"
+#include "led.h"
 
 tLight_State TRAFFIC_state_G;
 tWord TRAFFIC_time_in_state_G;
@@ -30,6 +31,8 @@ Traffic_Update(void) {
     switch(TRAFFIC_state_G){
         case RED:
             /* Turn red led on, green off */
+            Led_Set(RED, ON);
+            Led_Set(GREEN, OFF);
             if(TRAFFIC_time_in_state_G > RED_DURATION || gotoGreen) {
                 TRAFFIC_time_in_state_G = 0;
                 TRAFFIC_state_G = RED_GREEN;
@@ -38,6 +41,8 @@ Traffic_Update(void) {
 
         case RED_GREEN:
             /* Turn red led on, green on */
+            Led_Set(RED, ON);
+            Led_Set(GREEN, ON);
             if(TRAFFIC_time_in_state_G > RED_GREEN_DURATION) {
                 TRAFFIC_time_in_state_G = 0;
                 TRAFFIC_state_G = GREEN;
@@ -45,20 +50,26 @@ Traffic_Update(void) {
 
         case GREEN:
             /* Turn red led off, green oon */
+            Led_Set(RED, OFF);
+            Led_Set(GREEN, ON);
             if(TRAFFIC_time_in_state_G > GREEN_DURATION) {
                 TRAFFIC_time_in_state_G = 0;
                 TRAFFIC_state_G = GREEN_RED;
             }
 
         case GREEN_RED:
-            /* Turn red led on, green off */
+            /* Turn red led on, green on */
+            Led_Set(RED, ON);
+            Led_Set(GREEN, ON);
             if(TRAFFIC_time_in_state_G > GREEN_RED_DURATION) {
                 TRAFFIC_time_in_state_G = 0;
                 TRAFFIC_state_G = RED;
             }
 
         case AMBER:
-            /* Turn red led on, green off */
+            /* Turn red led on, green on */
+            Led_Set(RED, ON);
+            Led_Set(GREEN, ON);
             if(TRAFFIC_time_in_state_G > RED_DURATION) {
                 TRAFFIC_time_in_state_G = 0;
                 TRAFFIC_state_G = RED;
