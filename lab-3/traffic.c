@@ -6,10 +6,10 @@ tWord TRAFFIC_time_in_state_G;
 tWord gotoGreen;
 
 /* Durations are supplied in seconds */
-#define RED_DURATION ((3 * 1000) / TIMER_INTERVAL)
-#define RED_GREEN_DURATION ((1 * 1000) / TIMER_INTERVAL)
-#define GREEN_DURATION ((3 * 1000) / TIMER_INTERVAL)
-#define GREEN_RED_DURATION ((1 * 1000) / TIMER_INTERVAL)
+#define RED_DURATION ((5 * 1000) / TIMER_INTERVAL)
+#define RED_GREEN_DURATION ((0.5 * 1000) / TIMER_INTERVAL)
+#define GREEN_DURATION ((5 * 1000) / TIMER_INTERVAL)
+#define GREEN_RED_DURATION ((0.5 * 1000) / TIMER_INTERVAL)
 #define AMBER_DURATION ((5 * 1000) / TIMER_INTERVAL)
 
 
