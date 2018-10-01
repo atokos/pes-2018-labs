@@ -13,7 +13,8 @@ static tWord blinkState;
 void Led_Init(tWord DELAY) {
   delay = DELAY;
   /* Turn off both leds */
-  Led_Set()
+  Led_Set(RED, OFF);
+  Led_Set(GREEN, OFF);
 }
 
 /* Check the state of the leds, if on and the delay is reached
@@ -66,7 +67,7 @@ void Led_Blink(void) {
   LED_PORT ^= RED_LED_PIN + GREEN_LED_PIN;
 }
 
-void Led_State(tByte LED, tByte STATE) {
+void Led_Set(tByte LED, tByte STATE) {
   switch(LED) {
     case RED_LED:
       if(STATE == ON){
