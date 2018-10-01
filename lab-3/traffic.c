@@ -20,6 +20,11 @@ Traffic_Init(void) {
 
 Traffic_Update(void) {
 
+    /* Check if switch is pressed */
+    if(isPressed() == TRUE){
+      gotoGreen = TRUE;
+    }
+
     TRAFFIC_time_in_state_G++;
 
     switch(TRAFFIC_state_G){
