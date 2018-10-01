@@ -4,7 +4,8 @@
 #include "msp430.h"
 
 #define DCO_FREQ 16*1e6
-#define TIMER_INTERVAL 1
+/* interval in ms */
+#define TIMER_INTERVAL 10
 #define ON 1
 #define OFF 0
 #define TRUE 1
