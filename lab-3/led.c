@@ -19,7 +19,7 @@ void Led_Set(tByte LED, tByte STATE) {
         LED_PORT |= RED_LED_PIN;
       }
       else{
-        LED_PORT_DIRECTION &= ~RED_LED_PIN;
+        LED_PORT_DIRECTION &= ~(RED_LED_PIN);
       }
     case GREEN:
     if(STATE == ON){
@@ -27,7 +27,7 @@ void Led_Set(tByte LED, tByte STATE) {
         LED_PORT |= GREEN_LED_PIN;
       }
       else{
-        LED_PORT_DIRECTION &= ~GREEN_LED_PIN;
+        LED_PORT_DIRECTION &= ~(GREEN_LED_PIN);
       }
   }
 }

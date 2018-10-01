@@ -32,7 +32,7 @@ __attribute__((interrupt(TIMER0_A0_VECTOR))) void Timer_A(void) {
 
 tWord getTick() {return tickCount;}
 
-/* Runs approx. every 1 ms */
+/* Runs approx. every 10 ms */
 void timer_run() {
 	tickCount++;
 	Traffic_Update();

@@ -16,6 +16,7 @@ int main(void) {
   Timer_Init();
   Switch_Init();
 
+  /* Enable interrupts */
   __enable_interrupt();
 
   /* Superloop */
