@@ -14,5 +14,6 @@
 typedef unsigned char tByte;
 typedef unsigned int tWord;
 typedef unsigned long tLong;
+typedef enum {RED, RED_GREEN, GREEN, GREEN_RED, AMBER} tLight_State;
 
 #endif
