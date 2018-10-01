@@ -12,11 +12,8 @@ static tWord blinkState;
 /* DELAY in ms */
 void Led_Init(tWord DELAY) {
   delay = DELAY;
-
-  /* Set the direction of both led pins to output */
-  Led_Enable(ON);
-
-  Led_Reset();
+  /* Turn off both leds */
+  Led_Set()
 }
 
 /* Check the state of the leds, if on and the delay is reached
@@ -67,4 +64,27 @@ void Led_Enable(tByte state) {
 /* Alternate between the red and green leds */
 void Led_Blink(void) {
   LED_PORT ^= RED_LED_PIN + GREEN_LED_PIN;
+}
+
+void Led_State(tByte LED, tByte STATE) {
+  switch(LED) {
+    case RED_LED:
+      if(STATE == ON){
+        LED_PORT_DIRECTION |= RED_LED_PIN;
+        LED_PORT |= RED_LED_PIN;
+      }
+      else{
+        LED_PORT_DIRECTION &= ~RED_LED_PIN;
+        LED_PORT &= ~RED_LED_PIN;
+      }
+    case GREEN_LED:
+    if(STATE == ON){
+        LED_PORT_DIRECTION |= GREEN_LED_PIN;
+        LED_PORT |= GREEN_LED_PIN;
+      }
+      else{
+        LED_PORT_DIRECTION &= ~GREEN_LED_PIN;
+        LED_PORT &= ~GREEN_LED_PIN;
+      }
+  }
 }

@@ -10,6 +10,8 @@
 #define OFF 0
 #define TRUE 1
 #define FALSE 0
+#define RED_LED 0
+#define GREEN_LED 1
 
 typedef unsigned char tByte;
 typedef unsigned int tWord;

@@ -15,5 +15,6 @@ void Led_Enable(tByte state);
 
 void Led_Blink();
 
+void Led_Set(tByte LED, tByte STATE);
 
 #endif
