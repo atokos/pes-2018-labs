@@ -39,7 +39,7 @@ Traffic_Update(void) {
                 TRAFFIC_time_in_state_G = 0;
                 TRAFFIC_state_G = RED_GREEN;
                 gotoGreen = FALSE;
-                UART_Write("Switchin to RED_GREEN state\n");
+                UART_Write("Switching to RED_GREEN state ");
                 break;
             }
             break;
@@ -51,7 +51,7 @@ Traffic_Update(void) {
             if(TRAFFIC_time_in_state_G > RED_GREEN_DURATION) {
                 TRAFFIC_time_in_state_G = 0;
                 TRAFFIC_state_G = GREEN;
-                UART_Write("Switchin to GREEN state\n");
+                UART_Write("Switchin to GREEN state ");
                 break;
             }
             break;
@@ -63,7 +63,7 @@ Traffic_Update(void) {
             if(TRAFFIC_time_in_state_G > GREEN_DURATION) {
                 TRAFFIC_time_in_state_G = 0;
                 TRAFFIC_state_G = GREEN_RED;
-                UART_Write("Switchin to GREEN_RED state\n");
+                UART_Write("Switching to GREEN_RED state ");
                 break;
             }
             break;
@@ -75,7 +75,7 @@ Traffic_Update(void) {
             if(TRAFFIC_time_in_state_G > GREEN_RED_DURATION) {
                 TRAFFIC_time_in_state_G = 0;
                 TRAFFIC_state_G = RED;
-                UART_Write("Switchin to RED state\n");
+                UART_Write("Switching to RED state ");
                 break;
             }
             break;
@@ -87,7 +87,7 @@ Traffic_Update(void) {
             if(TRAFFIC_time_in_state_G > AMBER_DURATION) {
                 TRAFFIC_time_in_state_G = 0;
                 TRAFFIC_state_G = RED;
-                UART_Write("Switchin to RED state\n");
+                UART_Write("Switching to RED state");
                 break;
             }
             break;
