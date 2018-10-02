@@ -1,6 +1,7 @@
 #include "project.h"
 #include "ports.h"
 
+#include "uart.h"
 #include "led.h"
 #include "traffic.h"
 #include "switch.h"
@@ -11,6 +12,7 @@ int main(void) {
   WDTCTL = WDTPW | WDTHOLD;
 
   /* Init tasks */
+  UART_Init();
   Led_Init(1000);
   Traffic_Init();
   Timer_Init();
