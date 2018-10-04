@@ -1,3 +1,1 @@
-# pes-2018-labs
-
-Exercises for the Programming Embedded Systems course 2018.
+# Exercises for the Programming Embedded Systems course 2018.
