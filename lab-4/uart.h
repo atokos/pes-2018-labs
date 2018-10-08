@@ -1,6 +1,8 @@
 #ifndef UART_H
 #define UART_H
 
+#include "project.h"
+
 typedef unsigned char _tByte;
 
 void UART_Init();
