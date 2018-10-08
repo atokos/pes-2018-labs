@@ -38,13 +38,13 @@ void SCH_Update(void) {
 }
 
 void SCH_Dispatch(void) {
-	tByte idx;
-	for(idx=0; idx<MAX_TASKS;idx++) {
-		if(gTaskList[idx].RunMe>0) {
-			(*gTaskList[idx].pTask)();
-			gTaskList[idx].RunMe--;
-			if(gTaskList[idx].Repeat == 0) {
-				SCH_Delete_Task(idx);
+	tByte i;
+	for(i = 0; i < MAX_TASKS; i++) {
+		if(gTaskList[i].RunMe > 0) {
+			(*gTaskList[i].pTask)();
+			gTaskList[i].RunMe--;
+			if(gTaskList[i].Repeat == 0) {
+				SCH_Delete_Task(i);
 			}
 		}
 	} 
