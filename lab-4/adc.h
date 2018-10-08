@@ -7,6 +7,4 @@ void ADC_Init();
 void ADC_Read();
 void ADC_Write();
 
-void integerToString(char* string, int number);
-
 #endif

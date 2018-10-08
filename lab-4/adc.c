@@ -4,7 +4,6 @@
 
 static tWord gADCLastVal = 0;
 
-//initialize the ADC 
 void ADC_Init(){
 	
 	ADC10CTL0 &= ENC; // Start conversion
@@ -23,15 +22,15 @@ void ADC_Init(){
 
 void ADC_Read(void) { 
 	tWord count = 32000;
-	ADC10CTL0 |= ENC + ADC10SC; //sampling and conversion start
+	ADC10CTL0 |= ENC + ADC10SC; // Sampling and conversion start
 	
 	while((ADC10CTL1 & ADC10BUSY) && --count);
 	if (!count) UART_Write("ADC timeout error");
 	
-	gADCLastVal = ADC10MEM; //conversion memory register
-	// current value is stored in the gADCLastVal variable
+	gADCLastVal = ADC10MEM; // Conversion memory register
+	// Current value is stored in the gADCLastVal variable
 	
-	//shut off the conversion
+	// Shut off the conversion
 	ADC10CTL0 &= ~ENC;
 }
 
@@ -40,39 +39,4 @@ void ADC_Write(void) {
     sprintf(str, "Temp: %d\n\r", (int) gADCLastVal);
     char *temperature = str;
     UART_Write(str);
-}
-
-void integerToString(char* string, int number) {
-
-    if(number == 0) {
-         string[0] = '0'; return; 
-    }
-
-    int divide = 0;
-    int modResult;
-    int  length = 0;
-    int isNegative = 0;
-    int  copyOfNumber;
-    int offset = 0;
-    copyOfNumber = number;
-
-    if( number < 0 ) {
-        isNegative = 1;
-        number = 0 - number;
-        length++;
-    }
-    while(copyOfNumber != 0) { 
-        length++;
-        copyOfNumber /= 10;
-    }
-
-    for(divide = 0; divide < length; divide++) {
-        modResult = number % 10;
-        number    = number / 10;
-        string[length - (divide + 1)] = modResult + '0';
-    }
-    if(isNegative) { 
-    string[0] = '-';
-    }
-    string[length] = '\0';
 }
