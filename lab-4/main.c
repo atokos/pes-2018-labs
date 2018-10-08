@@ -3,9 +3,9 @@
 
 #include "uart.h"
 #include "led.h"
-#include "traffic.h"
 #include "switch.h"
 #include "timer.h"
+#include "eos.h"
 
 int main(void) {
   /* Stop watchdog timer */
@@ -13,16 +13,17 @@ int main(void) {
 
   /* Init tasks */
   UART_Init();
-  Led_Init(1000);
-  Traffic_Init();
+  Led_Init();
+  SCH_Init();
   Timer_Init();
   Switch_Init();
 
-  /* Enable interrupts */
-  __enable_interrupt();
+  SCH_AddTask(Led_Update, 0, 100);
+
+  UART_Write("Starting up\n\r");
 
   /* Superloop */
   while(1) {
-    LPM1; // Enter low power mode
+    SCH_Dispatch();
   }
 }

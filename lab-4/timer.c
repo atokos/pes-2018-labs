@@ -1,5 +1,5 @@
 #include "project.h"
-#include "traffic.h"
+#include "eos.h"
 
 #include "timer.h"
 
@@ -35,5 +35,5 @@ tWord getTick() {return tickCount;}
 /* Runs approx. every 10 ms */
 void timer_run() {
 	tickCount++;
-	Traffic_Update();
+	SCH_Update();
 }

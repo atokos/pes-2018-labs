@@ -2,6 +2,7 @@
 #include "ports.h"
 
 #include "led.h"
+#include "uart.h"
 
 /* DELAY in ms */
 void Led_Init() {
@@ -12,4 +13,5 @@ void Led_Init() {
 
 void Led_Update() {
   LED_PORT ^= RED_LED_PIN + GREEN_LED_PIN;
+  UART_Write("Changing LED\n\r");
 }
