@@ -5,6 +5,6 @@
 
 void Led_Init();
 
-void Led_Set(tByte LED, tByte STATE);
+void Led_Update();
 
 #endif
